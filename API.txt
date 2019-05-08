@@ -1,0 +1,18 @@
+import requests
+import json
+
+url = "https://api.github.com/users/PavithBala/repos"
+
+headers = {"Authorization":"token[1321ce8ca045fe209f9e35d55f116768456ea184]"}
+
+response = requests.get(url,headers=headers)
+
+# print Unicode response string
+content = response.text   
+
+#convert from json to python
+my_json = json.loads(response.text)   
+
+#print my_json
+for item in my_json:
+    print(item['name'])
